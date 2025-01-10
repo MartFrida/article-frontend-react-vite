@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const articleInstance = axios.create({
-  baseURL: "http://localhost:3001/api/articles"
+
+  baseURL: import.meta.env.VITE_BASE_URL
 })
 
 export const fetchAllArticles = async () => {
