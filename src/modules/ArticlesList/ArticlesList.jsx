@@ -3,12 +3,11 @@ import { fetchAllArticles } from '../../api/article-api.js'
 
 const ArticlesList = () => {
   const [articles, setArticles] = useState([])
-
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const data = await fetchAllArticles()
-        setArticles(data)
+        const { result } = await fetchAllArticles()
+        setArticles(result)
 
       } catch (error) {
         console.log(error.message)
@@ -17,12 +16,11 @@ const ArticlesList = () => {
     fetchArticles()
   }, [])
 
-  const elements = articles.map(({ id, title }) => <li key={id}>{title}</li>)
-
   return (
     <ul>
-      {elements}
+      {articles?.map(({ id, title }) => <li key={id}>{title}</li>)}
     </ul>
+
   )
 
 }
