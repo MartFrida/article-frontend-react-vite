@@ -8,7 +8,7 @@ const ArticlesList = () => {
       try {
         const { result } = await fetchAllArticles()
         setArticles(result)
-
+        console.log(articles)
       } catch (error) {
         console.log(error.message)
       }
