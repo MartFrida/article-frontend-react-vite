@@ -6,14 +6,15 @@ const ArticlesList = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const { result } = await fetchAllArticles()
+        const { result, total } = await fetchAllArticles()
         setArticles(result)
-        console.log(articles)
+        console.log(total)
       } catch (error) {
         console.log(error.message)
       }
     }
     fetchArticles()
+
   }, [])
 
   return (
